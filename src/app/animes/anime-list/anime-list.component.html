@@ -1,0 +1,8 @@
+<ap-search 
+    (keyup)="filtrar($event.target.value)">
+</ap-search>
+
+<ap-animes 
+    *ngIf="show"
+    [dataSource]="list">
+</ap-animes>

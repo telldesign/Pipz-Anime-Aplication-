@@ -1,0 +1,44 @@
+<p class="text-center text-muted" *ngIf="!dataSource"> 
+    Sorry, no animes
+</p>
+
+<div class="example-container mat-elevation-z8" >
+    
+    <table mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell *matCellDef="let dataSource"> <a [routerLink]="[dataSource.id]"> {{dataSource.id}} {{dataSource.attributes.canonicalTitle}} </a>  </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="averageRating">
+        <mat-header-cell *matHeaderCellDef> Average rating </mat-header-cell>
+        <mat-cell *matCellDef="let dataSource"> {{dataSource.attributes.averageRating}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="startDate">
+        <mat-header-cell *matHeaderCellDef> Start date </mat-header-cell>
+        <mat-cell *matCellDef="let dataSource"> {{dataSource.attributes.startDate}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="endDate">
+        <mat-header-cell *matHeaderCellDef> End date </mat-header-cell>
+        <mat-cell *matCellDef="let dataSource"> {{dataSource.attributes.endDate}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let dataSource"> {{dataSource.attributes.status}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="posterImage">
+        <mat-header-cell *matHeaderCellDef> Poster image </mat-header-cell>
+        <mat-cell *matCellDef="let dataSource"> <img [src]="dataSource.attributes.posterImage.tiny" alt="Image" /> </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+    </table>
+    
+</div>
